@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="ru">
+	<head>
+		<meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Heat&Meat</title>
+		<link href="specialOffers.css" rel="stylesheet" type="text/css"/>
+		<link href="лого.png" rel="icon" type="image/png"/>
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap" rel="stylesheet" />
+		<!--<script src="specialOffers.js" defer></script>-->
+		<script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+	    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+	    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+	</head>
+	<body>
+		<header>
+			<div class="headerContainer">
+				<a href="index.html"><img class="headerLogo" src="лого.png"/></a>
+				<ul class="headerElements">
+					<a class="headerElement link" href="aboutUs.html"><li>О нас</li></a>
+					<a class="headerElement link" href="menu.html"><li>Меню</li></a>
+					<a class="headerElement link" href="contacts.html"><li>Контакты</li></a>
+					<a class="headerElement link" href="specialOffers.html"><li>Спец. предложения</li></a>
+				</ul>
+			</div>
+		</header>
+
+		<main id="root">
+			<!--<div class="flexContainer"></div>-->
+			<script type="text/babel">
+				console.log('Сопряжение есть')
+
+				function WeekDaysFunc(props) {
+				    return (
+				        <div className="oneDay">
+				            <div className="imgContainer">
+				                <img src={props.weekDay.img} alt="Какая-то вкусняшка." />
+				            </div>
+				            <p>{props.weekDay.day}</p>
+				            <div className="hiddenContent">
+				                <p>{props.weekDay.description}</p>
+				            </div>
+						</div>
+				    )
+				}
+
+				class Days extends React.Component {
+				    state = {days: [
+				        { day: 'Понедельник', img: 'specialOffers1.jpeg', description: 'Каждому гостю к каждому ужину (с 18:00) наша домашняя настойка В ПОДАРОК.' },
+				        { day: 'Вторник', img: 'specialOffers2.jpg', description: 'Комбо-ужины по 399 р. и 499 р. (узнай, какой сегодня, <a href="http://project5848550.tilda.ws/page29111104.html">тут</a>).' },
+				        { day: 'Среда', img: 'specialOffers3.jpg', description: 'К каждой бутылке вина подарим закуску на ваш выбор. Профит!' },
+				        { day: 'Четверг', img: 'specialOffers4.jpg', description: 'Все алкогольные коктейли умножаются на два. Берёшь один, а получаешь два. В - Выгода!' },
+				        { day: 'Пятница', img: 'specialOffers5.jpg', description: 'Угощаем всех гостей домашним пуншем на ужин (с 18:00).' },
+				        { day: 'Суббота', img: 'specialOffers6.jpg', description: 'Каждому гостю к каждому ужину (с 18:00) наша домашняя настойка В ПОДАРОК.' },
+				        { day: 'Воскресенье', img: 'specialOffers7.jpeg', description: 'Приходите семьей, подарим детям какао или картофель фри (на ваш выбор), дадим раскраски и игрушки.' },
+				        { day: 'Ежедневная акция', img: 'specialOffers8.jpg', description: 'Скидка 20% на кофе с собой.' }
+				    ]}
+
+				    q(day_) {
+				        return (
+				            <WeekDaysFunc weekDay={day_} key={day_.img} />
+				        )
+				    }
+
+				    render() {
+				        return (
+				            <div className="flexContainer">
+				                {this.state.days.map(day_ => this.q(day_))}
+				            </div>
+				        )
+				    }
+				}
+
+				ReactDOM.render(<Days />, document.querySelector('main'))
+			</script>
+		</main>
+
+		<footer>
+			<div class="footerContainer">
+				<ul class="footerElements">
+					<li class="footerElement" style="font-size: 24px;">Наши соцсети:</li>
+					<a class="link" href="https://vk.com/public211046320"><li class="footerElement">VK</li></a>
+					<a class="link" href="https://instagram.com/"><li class="footerElement">Instagram</li></a>
+				</ul>
+				<span class="ownersInfo">© 2015 - 2023 “Hit&Meat”</span>
+			</div>
+		</footer>
+	</body>
+</html>
